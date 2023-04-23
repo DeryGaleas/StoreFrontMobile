@@ -83,4 +83,4 @@ const loginStyles = StyleSheet.create({
     }
   });
   
-export default loginStyles
+export default loginStyles;
