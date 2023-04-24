@@ -3,7 +3,7 @@ import { useForm, Controller } from "react-hook-form";
 import newItemFieldStyles from './NewItemField.styles';
 
 export default function NewItemField(props) {
-    const {fieldItem, fieldInfo, editMode, controlData, } = props;
+    const {fieldItem, fieldInfo, editMode, controlData, inputName } = props;
     const {control, error} = controlData;
 
     return(
@@ -12,7 +12,7 @@ export default function NewItemField(props) {
             <Controller
                
                 control={control}
-                name={fieldItem}
+                name={inputName}
                 rules={{required:'The email is required'}}
                 render={({field:{onBlur, value}}) => (
                     <TextInput
