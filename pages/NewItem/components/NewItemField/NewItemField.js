@@ -12,7 +12,7 @@ export default function NewItemField(props) {
             <Controller
                
                 control={control}
-                name='SKU'
+                name={fieldItem}
                 rules={{required:'The email is required'}}
                 render={({field:{onBlur, value}}) => (
                     <TextInput

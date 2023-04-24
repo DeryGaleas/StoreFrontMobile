@@ -11,7 +11,7 @@ export default function ItemVisualization({navigation}) {
                 <Text style={[itemVisualizationStyles.nameWidth, itemVisualizationStyles.titleStyle]}>Name</Text>
                 <View style={[itemVisualizationStyles.detailWidth, itemVisualizationStyles.titleStyle]}></View>
             </View>
-            <ItemInfo navigation={navigation}/>
+            <ItemInfo itemId="Sxe234" itemName="Coke" navigation={navigation}/>
         </View>
     );
 }
