@@ -2,12 +2,7 @@ import { Text, View, Dimensions, StyleSheet, TextInput, Pressable } from 'react-
 import ItemInfo from './components/ItemInfo';
 import itemVisualizationStyles from './ItemVisualization.styles';
 
-
-
-
-
-
-export default function ItemVisualization() {
+export default function ItemVisualization({navigation}) {
   
     return(
         <View>
@@ -16,7 +11,7 @@ export default function ItemVisualization() {
                 <Text style={[itemVisualizationStyles.nameWidth, itemVisualizationStyles.titleStyle]}>Name</Text>
                 <View style={[itemVisualizationStyles.detailWidth, itemVisualizationStyles.titleStyle]}></View>
             </View>
-            <ItemInfo/>
+            <ItemInfo navigation={navigation}/>
         </View>
     );
 }

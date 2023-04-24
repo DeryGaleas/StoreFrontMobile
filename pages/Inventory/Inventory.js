@@ -3,17 +3,20 @@ import inventoryStyles from './Inventory.styles';
 import ItemVisualization from './components/ItemVisualization/ItemVisualization';
 
 
-export default function Inventory() {
-  
+export default function Inventory({navigation}) {
+    function navigatePage(){
+        navigation.navigate('NewItem')
+    }
+
     return(
         <View style={inventoryStyles.mainContainerStyle}>
             <View style={inventoryStyles.titleLayout}>
                 <Text style={inventoryStyles.textStyle}>Items</Text>
-                <Pressable style={inventoryStyles.buttonStyle}>
+                <Pressable onPress={navigatePage} style={inventoryStyles.buttonStyle}>
                     <Text style={inventoryStyles.textStyle}>+ Add Item</Text>
                 </Pressable> 
             </View>
-            <ItemVisualization/>
+            <ItemVisualization navigation={navigation}/>
         </View>
     );
 }
