@@ -1,29 +1,45 @@
-import { Text, View, Dimensions, StyleSheet, TextInput, Pressable } from 'react-native';
-import { useForm, Controller } from "react-hook-form";
-import newItemFieldStyles from './NewItemField.styles';
+import {
+  Text,
+  View,
+  Dimensions,
+  StyleSheet,
+  TextInput,
+  Pressable,
+} from "react-native";
+import newItemFieldStyles from "./NewItemField.styles";
+
 
 export default function NewItemField(props) {
-    const {fieldItem, fieldInfo, editMode, controlData, inputName } = props;
-    const {control, error} = controlData;
+  const {
+    fieldItem,
+    fieldInfo,
+    inputName,
+    errors,
+    keyboardType,
+    control,
+    Controller,
+    setValue
+  } = props;
+  //const { control, register, formState: { errors } } = useForm();
 
-    return(
-        <View style={newItemFieldStyles.mainContainerStyle}>
-            <Text style={newItemFieldStyles.fieldItemtextStyle}>{fieldItem}</Text>
-            <Controller
-               
-                control={control}
-                name={inputName}
-                rules={{required:'The email is required'}}
-                render={({field:{onBlur, value}}) => (
-                    <TextInput
-                        onBlur={onBlur}
-                        style={newItemFieldStyles.fieldItemInfotextStyle}
-                        value={value}
-                        placeholder={fieldInfo}
-                        placeholderTextColor={"gray"}
-                    />
-                )}
-            />
-        </View>
-    );
+  return (
+    <View style={newItemFieldStyles.mainContainerStyle}>
+      <Text style={newItemFieldStyles.fieldItemtextStyle}>{fieldItem}</Text>
+      <Controller
+        control={control}
+        name={inputName}
+        render={({ field: { onBlur, onChange, value } }) => (
+          <TextInput
+            onBlur={onBlur}
+            value={value}
+            style={newItemFieldStyles.fieldItemInfotextStyle}
+            placeholder={fieldInfo}
+            keyboardType={keyboardType}
+            placeholderTextColor={"gray"}
+            onChangeText={onChange}
+          />
+        )}
+      />
+    </View>
+  );
 }

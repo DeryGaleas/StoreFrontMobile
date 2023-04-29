@@ -3,8 +3,8 @@ import itemFieldStyles from './ItemField.styles';
 import { Controller } from "react-hook-form";
 
 export default function ItemField(props) {
-    const {fieldItem, fieldInfo, editMode, controlData} = props;
-    const {control} = controlData;
+    const {fieldItem, fieldInfo, editMode, control} = props;
+    
 
 
     return(

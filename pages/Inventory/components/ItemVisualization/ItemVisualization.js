@@ -2,8 +2,12 @@ import { Text, View, Dimensions, StyleSheet, TextInput, Pressable } from 'react-
 import ItemInfo from './components/ItemInfo';
 import itemVisualizationStyles from './ItemVisualization.styles';
 
-export default function ItemVisualization({navigation}) {
-  
+
+
+export default function ItemVisualization({navigation, itemData, setItemData}) {
+
+
+   
     return(
         <View>
             <View style={itemVisualizationStyles.itemDisplayLayout}>
@@ -11,7 +15,11 @@ export default function ItemVisualization({navigation}) {
                 <Text style={[itemVisualizationStyles.nameWidth, itemVisualizationStyles.titleStyle]}>Name</Text>
                 <View style={[itemVisualizationStyles.detailWidth, itemVisualizationStyles.titleStyle]}></View>
             </View>
-            <ItemInfo itemId="Sxe234" itemName="Coke" navigation={navigation}/>
+            {itemData.map((item)=>{
+                return(
+                    <ItemInfo key={item.id} itemId={item.id} itemName={item.name} navigation={navigation}/>
+                )
+            })}
         </View>
     );
 }
